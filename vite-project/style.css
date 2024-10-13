@@ -65,7 +65,7 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--first-color);
   color: var(--white-color);
-  overflow-x: hidden; /* يمنع التمرير الأفقي */
+  overflow-x: hidden;  
 }
 
 ul {
@@ -86,8 +86,8 @@ img {
 
 .container {
   max-width: 1120px;
-  margin-inline: auto; /* يضمن تركز الحاوية */
-  padding: 0 1.5rem; /* إضافة مساحة جانبية */
+  margin-inline: auto;  
+  padding: 0 1.5rem;  
 }
 
 .grid {
@@ -186,7 +186,7 @@ img {
   color: var(--second-color);
 }
 
-/* إخفاء القائمة الاجتماعية على الموبايل */
+
 @media (max-width: 768px) {
   .nav {
     padding: 0 20px;
@@ -197,9 +197,9 @@ img {
   }
 
   .nav__menu {
-    display: none; /* إخفاء القائمة بشكل افتراضي */
-    flex-direction: column; /* عرض العناصر عمودياً */
-    position: absolute; /* لجعلها تظهر تحت الأيقونة */
+    display: none;  
+    flex-direction: column; 
+    position: absolute; 
     background-color: var(--first-color);
     width: 100%;
     top: 100%;
@@ -207,12 +207,12 @@ img {
   }
 
   .nav__menu.show-menu {
-    display: flex; /* إظهار القائمة عند النقر */
+    display: flex; 
   }
 
   .nav__list {
-    flex-direction: column; /* عرض العناصر عمودياً */
-    row-gap: 10px; /* إضافة مسافة بين العناصر */
+    flex-direction: column; 
+    row-gap: 10px;  
   }
 }
 
@@ -342,27 +342,44 @@ img {
 
 /*======================= FAVORITES ====================*/
 .favorites--container {
-  row-gap: 3rem;
+  row-gap: 2rem;
   grid-template-columns: 100%;
   padding-bottom: 3rem;
+  margin-top: 58px;
+  justify-content: center;
 }
 
+.section--title {
+  margin: auto;
+  padding: 10px;
+  text-align: center;}
+  
+  .favorites--data h2{
+margin-right: 90px;
+font-size:  2.4rem;
+  font: var(--font-regular) var(--h2-font-size) var(--second-font);
+ }
+
+
+  
+   
 .favorites--data {
   position: relative;
   text-align: center;
+  
 }
 
 .favorites--cheese-1,
 .favorites--cheese-2 {
   width: 40px;
   position: absolute;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .favorites--cheese-1 {
   top: 2rem;
   right: -15rem;
-  rotate: -15deg;
+  transform: rotate(-15deg);
 }
 
 .favorites--cheese-2 {
@@ -371,42 +388,50 @@ img {
   transform: scaleX(-1) rotate(45deg);
 }
 
+.favorites--swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .favorites--article {
   position: relative;
-  width: 200px;
+  width: 150px;
+  margin: 10px;
 }
 
 .favorites--img {
-  scale: .8;
-  transition: scale .4s filter .4s;
-  width: 200px;
+  transform: scale(0.8);
+  transition: transform 0.4s, filter 0.4s;
+  width: 30%;
 }
 
 .favorites--leaf-1,
 .favorites--leaf-2 {
-  width: 70px;
+  width: 50px;
   position: absolute;
   filter: var(--shadow-img);
 }
 
 .favorites--leaf-1 {
   top: -1rem;
-  right: -.5rem;
+  right: -0.5rem;
 }
 
 .favorites--leaf-2 {
   bottom: -1rem;
-  left: -.5rem;
+  left: -0.5rem;
 }
 
-:is(.swiper-slide-active, .swiper-slider-duplicate-active) .favorites__img {
-  scale: 1;
+:is(.swiper-slide-active, .swiper-slider-duplicate-active) .favorites--img {
+  transform: scale(1);
   filter: var(--shadow-img);
 }
 
 :is(.swiper-slide-active, .swiper-slider-duplicate-active) .favorites--leaf-1,
 :is(.swiper-slide-active, .swiper-slider-duplicate-active) .favorites--leaf-2 {
-  scale: 1;
+  transform: scale(1);
 }
 
 .swiper {
@@ -414,20 +439,28 @@ img {
   overflow: visible;
 }
 
-
+ 
 @media (max-width: 768px) {
+  .favorites--swiper {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .favorites--article {
+    width: 120px;
+    margin: 5px;
+  }
+
   .favorites--cheese-1 {
-    top: 5%; /* تعديل الموقع حسب الحاجة */
-    right: 5%; /* أو استخدام left إذا كان في الجهة اليسرى */
+    top: 5%;
+    right: 5%;
   }
 
   .favorites--cheese-2 {
-    bottom: 5%; /* تعديل الموقع حسب الحاجة */
-    left: 5%; /* أو استخدام right إذا كان في الجهة اليمنى */
+    bottom: 5%;
+    left: 5%;
   }
-   
 }
-
 /***************care****************/
 .care{
   background-color: var(--first-color-dark);
@@ -455,6 +488,12 @@ justify-self: center;
   margin-left: 80px;
   font-size: x-large;  
  font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+ .care--section h2{
+  margin-left: 10px;
+  font-size:  2.4rem;
+    font: var(--font-regular) var(--h2-font-size) var(--second-font);
+   }
 /************Banner************************/
  .banner{
 padding-top: 3rem;
@@ -577,12 +616,13 @@ font: var(--small-font-size)  var(--second-font);
 
 .contact__container {
   position: relative;
-  margin: auto;
-  background-color: var(--first-color-darken);
+   background-color: var(--first-color-darken);
   padding-top: 3.5rem;
   border-radius: 3rem;
   box-shadow: inset var(--shadow-card);
   overflow: hidden;
+ width: 95%;
+ margin: auto;
 }
 
 .contact__contact {
@@ -645,6 +685,8 @@ font: var(--small-font-size)  var(--second-font);
   bottom: 11rem;
   rotate: -15deg;
 }
+  
+
 
 .footer {
   padding-block: 3rem 2rem;
@@ -713,7 +755,7 @@ font: var(--small-font-size)  var(--second-font);
   transform: translateY(-.5rem);
 }
 
-/* Show Scroll Up */
+ 
 .show-scroll {
   bottom: 3rem;
 }

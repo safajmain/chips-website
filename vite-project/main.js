@@ -13,8 +13,7 @@ const linkAction = () => {
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
 
-/*=============== SHADOW HEADER ===============*/
-const scrollHeader =()=>{
+ const scrollHeader =()=>{
     const header = document.getElementById('header')
     this.scrollY>=50 ? header.classList.add('scroll-header' )
         : header.classList.remove('scroll-header')
