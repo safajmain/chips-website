@@ -738,7 +738,7 @@ font: var(--small-font-size)  var(--second-font);
 /*=============== SCROLL UP ===============*/
 .scrollup {
   position: fixed;
-  right: 1rem;
+  right: 2rem;
   bottom: 3rem;
   background-color: var(--first-color-dark);
   color: var(--white-color);
